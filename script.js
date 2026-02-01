@@ -7,9 +7,15 @@ const secret = document.getElementById("secret");
 
 function moveNo() {
   const padding = 12;
+
   const cardRect = card.getBoundingClientRect();
   const noRect = noButton.getBoundingClientRect();
   const yesRect = yesButton.getBoundingClientRect();
+
+  const maxX = cardRect.width - noRect.width - padding;
+  const maxY = cardRect.height - noRect.height - padding;
+
+  if (maxX <= padding || maxY <= padding) return;
 
   let x = 0;
   let y = 0;
@@ -19,8 +25,8 @@ function moveNo() {
   while (overlap && tries < 60) {
     tries += 1;
 
-    x = Math.random() * (cardRect.width - noRect.width - padding);
-    y = Math.random() * (cardRect.height - noRect.height - padding);
+    x = Math.random() * maxX;
+    y = Math.random() * maxY;
 
     const yesX = yesRect.left - cardRect.left;
     const yesY = yesRect.top - cardRect.top;
