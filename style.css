@@ -115,8 +115,8 @@ button {
 }
 
 .overlayCard {
-  width: min(560px, 94vw);
-  height: min(80vh, 680px);
+  width: min(820px, 92vw);
+  height: min(86vh, 880px);
   display: grid;
   grid-template-rows: 1fr auto auto;
   align-items: center;
@@ -155,4 +155,15 @@ button {
 
 .reset:hover {
   transform: translateY(-1px);
+}
+
+@media (max-width: 520px) {
+  .overlayCard {
+    height: min(84vh, 720px);
+    padding: 18px;
+  }
+
+  .overlayText {
+    font-size: 1.05rem;
+  }
 }
