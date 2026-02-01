@@ -1,35 +1,33 @@
 const noButton = document.getElementById("no");
 const yesButton = document.getElementById("yes");
-const card = document.getElementById("card");
-const overlay = document.getElementById("overlay");
-const resetButton = document.getElementById("reset");
+const arena = document.getElementById("arena");
 const secret = document.getElementById("secret");
 
 function moveNo() {
-  const padding = 12;
+  const padding = 10;
 
-  const cardRect = card.getBoundingClientRect();
+  const arenaRect = arena.getBoundingClientRect();
   const noRect = noButton.getBoundingClientRect();
   const yesRect = yesButton.getBoundingClientRect();
 
-  const maxX = cardRect.width - noRect.width - padding;
-  const maxY = cardRect.height - noRect.height - padding;
+  const maxX = arenaRect.width - noRect.width - padding;
+  const maxY = arenaRect.height - noRect.height - padding;
 
   if (maxX <= padding || maxY <= padding) return;
+
+  const yesX = yesRect.left - arenaRect.left;
+  const yesY = yesRect.top - arenaRect.top;
 
   let x = 0;
   let y = 0;
   let overlap = true;
   let tries = 0;
 
-  while (overlap && tries < 60) {
+  while (overlap && tries < 80) {
     tries += 1;
 
-    x = Math.random() * maxX;
-    y = Math.random() * maxY;
-
-    const yesX = yesRect.left - cardRect.left;
-    const yesY = yesRect.top - cardRect.top;
+    x = Math.random() * maxX + padding;
+    y = Math.random() * maxY + padding;
 
     overlap = !(
       x + noRect.width < yesX ||
@@ -39,8 +37,8 @@ function moveNo() {
     );
   }
 
-  noButton.style.left = `${Math.max(padding, x)}px`;
-  noButton.style.top = `${Math.max(padding, y)}px`;
+  noButton.style.left = `${x}px`;
+  noButton.style.top = `${y}px`;
 }
 
 noButton.addEventListener("mouseenter", moveNo);
@@ -50,15 +48,8 @@ noButton.addEventListener("touchstart", (e) => {
 }, { passive: false });
 
 yesButton.addEventListener("click", () => {
-  card.classList.add("isHidden");
-  overlay.classList.add("isVisible");
-  overlay.setAttribute("aria-hidden", "false");
-});
-
-resetButton.addEventListener("click", () => {
-  overlay.classList.remove("isVisible");
-  overlay.setAttribute("aria-hidden", "true");
-  card.classList.remove("isHidden");
+  secret.textContent = "Yes clicked.";
+  setTimeout(() => { secret.textContent = ""; }, 900);
 });
 
 let buffer = "";
@@ -73,9 +64,4 @@ window.addEventListener("keydown", (e) => {
     secret.textContent = "Husband mode noted.";
     buffer = "";
   }
-});
-
-window.addEventListener("load", () => {
-  noButton.style.left = "210px";
-  noButton.style.top = "14px";
 });
