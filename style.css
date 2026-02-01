@@ -24,6 +24,15 @@ body {
   position: relative;
   box-shadow: 0 25px 60px rgba(0, 0, 0, 0.45);
   border: 1px solid rgba(255, 255, 255, 0.06);
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 240ms ease, transform 240ms ease;
+}
+
+.card.isHidden {
+  opacity: 0;
+  transform: translateY(8px);
+  pointer-events: none;
 }
 
 .topline {
@@ -87,6 +96,7 @@ button {
 .overlay {
   position: fixed;
   inset: 0;
+  z-index: 50;
   display: grid;
   place-items: center;
   padding: 18px;
@@ -106,6 +116,11 @@ button {
 
 .overlayCard {
   width: min(520px, 94vw);
+  min-height: 190px;
+  display: grid;
+  align-content: center;
+  justify-items: center;
+  gap: 18px;
   background: linear-gradient(180deg, #131318, #0f0f12);
   border-radius: 18px;
   padding: 34px 26px;
@@ -117,7 +132,6 @@ button {
 .overlayText {
   font-size: 1.55rem;
   font-weight: 700;
-  margin: 2px 0 18px;
   color: rgba(255, 255, 255, 0.95);
 }
 
