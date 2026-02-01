@@ -24,15 +24,6 @@ body {
   position: relative;
   box-shadow: 0 25px 60px rgba(0, 0, 0, 0.45);
   border: 1px solid rgba(255, 255, 255, 0.06);
-  opacity: 1;
-  transform: translateY(0);
-  transition: opacity 280ms ease, transform 280ms ease;
-}
-
-.card.isHidden {
-  opacity: 0;
-  transform: translateY(6px);
-  pointer-events: none;
 }
 
 .topline {
@@ -117,32 +108,20 @@ button {
   width: min(520px, 94vw);
   background: linear-gradient(180deg, #131318, #0f0f12);
   border-radius: 18px;
-  padding: 30px 26px;
+  padding: 34px 26px;
   text-align: center;
   box-shadow: 0 25px 60px rgba(0, 0, 0, 0.55);
   border: 1px solid rgba(255, 255, 255, 0.06);
 }
 
-.small {
-  color: rgba(255, 255, 255, 0.78);
-  font-size: 0.95rem;
-  margin-bottom: 10px;
-}
-
-.big {
-  font-size: 1.7rem;
+.overlayText {
+  font-size: 1.55rem;
   font-weight: 700;
-  margin: 10px 0;
-}
-
-.small2 {
-  color: rgba(255, 255, 255, 0.85);
-  font-size: 1rem;
-  margin-top: 6px;
+  margin: 2px 0 18px;
+  color: rgba(255, 255, 255, 0.95);
 }
 
 .reset {
-  margin-top: 18px;
   background: rgba(255, 255, 255, 0.1);
   color: rgba(255, 255, 255, 0.9);
   border: 1px solid rgba(255, 255, 255, 0.12);
