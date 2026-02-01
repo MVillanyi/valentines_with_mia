@@ -21,11 +21,8 @@ body {
   border-radius: 18px;
   padding: 28px 28px 22px;
   text-align: center;
-  position: relative;
   box-shadow: 0 25px 60px rgba(0, 0, 0, 0.45);
   border: 1px solid rgba(255, 255, 255, 0.06);
-  opacity: 1;
-  transform: translateY(0);
   transition: opacity 240ms ease, transform 240ms ease;
 }
 
@@ -52,7 +49,6 @@ h1 {
   margin-top: 18px;
   position: relative;
   height: 110px;
-  overflow: hidden;
 }
 
 button {
@@ -61,97 +57,61 @@ button {
   border-radius: 999px;
   border: none;
   cursor: pointer;
-  transition: transform 160ms ease, box-shadow 160ms ease, opacity 160ms ease;
 }
 
 #yes {
   background: linear-gradient(135deg, #e63973, #7a1f3d);
   color: white;
-  position: relative;
-  z-index: 2;
   box-shadow: 0 10px 26px rgba(230, 57, 115, 0.35);
-}
-
-#yes:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 12px 30px rgba(230, 57, 115, 0.5);
 }
 
 #no {
   position: absolute;
   background: rgba(255, 255, 255, 0.1);
   color: rgba(255, 255, 255, 0.86);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  left: 210px;
-  top: 14px;
-}
-
-.secret {
-  margin: 14px 0 0;
-  font-size: 0.92rem;
-  color: rgba(255, 255, 255, 0.88);
-  min-height: 1.2em;
+  left: 180px;
+  top: 10px;
 }
 
 .overlay {
   position: fixed;
   inset: 0;
-  z-index: 50;
   display: grid;
   place-items: center;
-  padding: 18px;
-  background: rgba(0, 0, 0, 0.0);
-  backdrop-filter: blur(0px);
+  background: rgba(0, 0, 0, 0.78);
+  backdrop-filter: blur(6px);
   opacity: 0;
   pointer-events: none;
-  transition: opacity 280ms ease, background 280ms ease, backdrop-filter 280ms ease;
+  transition: opacity 280ms ease;
 }
 
 .overlay.isVisible {
   opacity: 1;
   pointer-events: auto;
-  background: rgba(0, 0, 0, 0.78);
-  backdrop-filter: blur(6px);
 }
 
 .overlayCard {
-  width: min(560px, 94vw);
-  max-height: min(78vh, 720px);
-  overflow: auto;
-  display: grid;
-  justify-items: center;
-  gap: 14px;
+  width: min(520px, 92vw);
   background: linear-gradient(180deg, #131318, #0f0f12);
   border-radius: 18px;
-  padding: 22px 22px 20px;
+  padding: 34px 26px;
   text-align: center;
   box-shadow: 0 25px 60px rgba(0, 0, 0, 0.55);
-  border: 1px solid rgba(255, 255, 255, 0.06);
 }
 
-.memoryImage {
-  width: min(420px, 100%);
-  max-height: 44vh;
-  object-fit: cover;
-  border-radius: 16px;
-  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.55);
-  border: 1px solid rgba(255, 255, 255, 0.06);
+.overlayTitle {
+  font-size: 1.7rem;
+  font-weight: 700;
+  margin-bottom: 12px;
 }
 
 .overlayText {
-  font-size: 1.15rem;
-  font-weight: 650;
-  color: rgba(255, 255, 255, 0.95);
-  line-height: 1.35;
+  font-size: 1.05rem;
+  line-height: 1.4;
+  margin-bottom: 20px;
 }
 
 .reset {
-  margin-top: 4px;
-  background: rgba(255, 255, 255, 0.1);
-  color: rgba(255, 255, 255, 0.9);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-}
-
-.reset:hover {
-  transform: translateY(-1px);
+  background: rgba(255, 255, 255, 0.12);
+  color: white;
 }
