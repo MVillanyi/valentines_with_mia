@@ -5,10 +5,18 @@ const overlay = document.getElementById("overlay");
 const overlayTitle = document.getElementById("overlayTitle");
 const overlayText = document.getElementById("overlayText");
 const next = document.getElementById("next");
+const arena = document.getElementById("arena");
 
 no.addEventListener("mouseenter", () => {
-  const x = Math.random() * 240;
-  const y = Math.random() * 70;
+  const arenaRect = arena.getBoundingClientRect();
+  const noRect = no.getBoundingClientRect();
+
+  const maxX = arenaRect.width - noRect.width;
+  const maxY = arenaRect.height - noRect.height;
+
+  const x = Math.random() * maxX;
+  const y = Math.random() * maxY;
+
   no.style.transform = `translate(${x}px, ${y}px)`;
 });
 
