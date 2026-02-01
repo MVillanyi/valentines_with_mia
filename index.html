@@ -2,20 +2,36 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Will you be my Valentine?</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Valentine</title>
+  <!-- #no peeking Mia. Thats not fair -->
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="card">
-    <h1>Will you be my Valentine? ❤️</h1>
+  <main class="wrap">
+    <section class="card" id="card">
+      <div class="topline">For Mia</div>
+      <h1>Will you be my Valentine?</h1>
 
-    <div class="buttons">
-      <button id="yes">Yes</button>
-      <button id="no">No</button>
-    </div>
+      <div class="buttons">
+        <button id="yes" type="button">Yes</button>
+        <button id="no" type="button">No</button>
+      </div>
 
-    <p class="hint">No seems a bit shy 😈</p>
-  </div>
+      <p class="hint">No seems a bit shy.</p>
+      <p class="secret" id="secret" aria-live="polite"></p>
+    </section>
+
+    <section class="overlay" id="overlay" aria-hidden="true">
+      <div class="overlayCard">
+        <div class="small">No expectations. Just us.</div>
+        <div class="big">Happy Valentine’s, Mia.</div>
+        <div class="small2">I’m glad it’s you.</div>
+
+        <button class="reset" id="reset" type="button">Back</button>
+      </div>
+    </section>
+  </main>
 
   <script src="script.js"></script>
 </body>
