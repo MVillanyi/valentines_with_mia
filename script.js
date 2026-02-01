@@ -1,3 +1,4 @@
+const card = document.getElementById("card");
 const noButton = document.getElementById("no");
 const yesButton = document.getElementById("yes");
 const arena = document.getElementById("arena");
@@ -54,12 +55,14 @@ yesButton.addEventListener("click", () => {
   overlay.classList.add("isVisible");
   overlay.setAttribute("aria-hidden", "false");
   overlayText.textContent = "Okay.";
+  card.classList.add("isHidden");
 });
 
 resetButton.addEventListener("click", () => {
   overlay.classList.remove("isVisible");
   overlay.setAttribute("aria-hidden", "true");
   overlayText.textContent = "Okay.";
+  card.classList.remove("isHidden");
 });
 
 let buffer = "";
