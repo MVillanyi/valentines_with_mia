@@ -47,14 +47,8 @@ body {
   margin: 0 0 8px 0;
 }
 
-h1 {
+h1, h2 {
   margin: 0 0 18px 0;
-  font-size: 34px;
-  line-height: 1.15;
-}
-
-h2 {
-  margin: 0 0 14px 0;
   font-size: 34px;
   line-height: 1.15;
 }
@@ -112,19 +106,14 @@ button {
   width: 100%;
   max-width: 520px;
   border-radius: 14px;
-  margin: 14px auto 14px;
+  margin: 14px auto 10px;
   display: block;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 420ms ease, transform 420ms ease;
 }
 
-.gallery {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 10px;
-  margin: 14px 0 8px;
-}
-
-.gallery img {
-  width: 100%;
-  border-radius: 10px;
-  display: block;
+.content-image.is-visible {
+  opacity: 1;
+  transform: translateY(0);
 }
