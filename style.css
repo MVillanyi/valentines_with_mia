@@ -105,4 +105,64 @@ button {
 }
 
 .secret {
-  margin: 12px
+  margin: 12px 0 0;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.86);
+  min-height: 1.2em;
+}
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 18px;
+  background: rgba(15, 15, 18, 0.72);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 280ms ease;
+}
+
+.overlay.isVisible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.overlayCard {
+  width: min(520px, 94vw);
+  background: linear-gradient(180deg, var(--panel), var(--black));
+  border-radius: 18px;
+  padding: 30px 26px;
+  text-align: center;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.small {
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 0.95rem;
+  margin-bottom: 10px;
+}
+
+.big {
+  font-size: 1.7rem;
+  font-weight: 700;
+  margin: 10px 0;
+}
+
+.small2 {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 1rem;
+  margin-top: 6px;
+}
+
+.reset {
+  margin-top: 18px;
+  background: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.reset:hover {
+  transform: translateY(-1px);
+}
