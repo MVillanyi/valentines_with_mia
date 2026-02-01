@@ -1,22 +1,11 @@
-:root {
-  --bg1: #f6d1dc;
-  --bg2: #e8b6c5;
-  --black: #0f0f12;
-  --panel: #131318;
-  --rose: #e63973;
-  --burgundy: #7a1f3d;
-  --text: #ffffff;
-  --muted: #b8b8c2;
-}
-
 * { box-sizing: border-box; }
 
 body {
   height: 100vh;
   margin: 0;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-  background: radial-gradient(circle at top, var(--bg1), var(--bg2));
-  color: var(--text);
+  background: radial-gradient(circle at top, #f6d1dc, #e8b6c5);
+  color: #ffffff;
 }
 
 .wrap {
@@ -28,13 +17,22 @@ body {
 
 .card {
   width: min(420px, 92vw);
-  background: linear-gradient(180deg, var(--panel), var(--black));
+  background: linear-gradient(180deg, #131318, #0f0f12);
   border-radius: 18px;
   padding: 28px 28px 22px;
   text-align: center;
   position: relative;
   box-shadow: 0 25px 60px rgba(0, 0, 0, 0.45);
   border: 1px solid rgba(255, 255, 255, 0.06);
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 280ms ease, transform 280ms ease;
+}
+
+.card.isHidden {
+  opacity: 0;
+  transform: translateY(6px);
+  pointer-events: none;
 }
 
 .topline {
@@ -67,7 +65,7 @@ button {
 }
 
 #yes {
-  background: linear-gradient(135deg, var(--rose), var(--burgundy));
+  background: linear-gradient(135deg, #e63973, #7a1f3d);
   color: white;
   position: relative;
   z-index: 2;
@@ -89,15 +87,67 @@ button {
 }
 
 .secret {
-  margin: 12px 0 0;
-  font-size: 0.9rem;
-  color: rgba(255, 255, 255, 0.86);
+  margin: 14px 0 0;
+  font-size: 0.92rem;
+  color: rgba(255, 255, 255, 0.88);
   min-height: 1.2em;
 }
 
 .overlay {
   position: fixed;
   inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 18px;
+  background: rgba(0, 0, 0, 0.0);
+  backdrop-filter: blur(0px);
   opacity: 0;
   pointer-events: none;
+  transition: opacity 280ms ease, background 280ms ease, backdrop-filter 280ms ease;
+}
+
+.overlay.isVisible {
+  opacity: 1;
+  pointer-events: auto;
+  background: rgba(0, 0, 0, 0.78);
+  backdrop-filter: blur(6px);
+}
+
+.overlayCard {
+  width: min(520px, 94vw);
+  background: linear-gradient(180deg, #131318, #0f0f12);
+  border-radius: 18px;
+  padding: 30px 26px;
+  text-align: center;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.small {
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 0.95rem;
+  margin-bottom: 10px;
+}
+
+.big {
+  font-size: 1.7rem;
+  font-weight: 700;
+  margin: 10px 0;
+}
+
+.small2 {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 1rem;
+  margin-top: 6px;
+}
+
+.reset {
+  margin-top: 18px;
+  background: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.reset:hover {
+  transform: translateY(-1px);
 }
