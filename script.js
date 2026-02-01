@@ -4,6 +4,7 @@ const arena = document.getElementById("arena");
 const overlay = document.getElementById("overlay");
 const resetButton = document.getElementById("reset");
 const secret = document.getElementById("secret");
+const overlayText = document.getElementById("overlayText");
 
 function moveNo() {
   const padding = 10;
@@ -52,14 +53,17 @@ noButton.addEventListener("touchstart", (e) => {
 yesButton.addEventListener("click", () => {
   overlay.classList.add("isVisible");
   overlay.setAttribute("aria-hidden", "false");
+  overlayText.textContent = "Okay.";
 });
 
 resetButton.addEventListener("click", () => {
   overlay.classList.remove("isVisible");
   overlay.setAttribute("aria-hidden", "true");
+  overlayText.textContent = "Okay.";
 });
 
 let buffer = "";
+let eggTimer = null;
 
 window.addEventListener("keydown", (e) => {
   const key = (e.key || "").toLowerCase();
@@ -68,9 +72,13 @@ window.addEventListener("keydown", (e) => {
   buffer = (buffer + key).slice(-18);
 
   if (buffer.includes("husband")) {
-    secret.textContent = "Okay, husband.";
+    overlayText.textContent = "Okay, husband.";
     buffer = "";
-    setTimeout(() => { secret.textContent = ""; }, 1800);
+
+    if (eggTimer) clearTimeout(eggTimer);
+    eggTimer = setTimeout(() => {
+      overlayText.textContent = "Okay.";
+    }, 2000);
   }
 });
 
