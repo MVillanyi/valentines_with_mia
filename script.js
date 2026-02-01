@@ -22,7 +22,6 @@ function moveNoInsideBox() {
 
   const currentRight = parseFloat(getComputedStyle(noBtn).right) || 0;
   const baseX = maxX - currentRight;
-
   const dx = x - baseX;
 
   noBtn.style.transform = `translate(${dx}px, ${y}px)`;
@@ -54,7 +53,7 @@ document.querySelectorAll(".next").forEach(btn => {
 
 const gallery = document.getElementById("gallery");
 if (gallery) {
-  for (let i = 1; i <= 9; i++) {
+  for (let i = 1; i <= 10; i++) {
     const img = document.createElement("img");
     img.src = `favorite_${i}.png`;
     img.alt = `Favorite ${i}`;
