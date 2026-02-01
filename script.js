@@ -61,9 +61,14 @@ const revealTotal = 10;
 function setReveal(index) {
   if (!revealImg || !revealCount || !revealNext) return;
 
-  revealImg.src = `favorite_${index}.png`;
-  revealImg.alt = `Favorite ${index}`;
-  revealCount.textContent = `${index} of ${revealTotal}`;
+  revealImg.classList.remove("is-visible");
+
+  setTimeout(() => {
+    revealImg.src = `favorite_${index}.png`;
+    revealImg.alt = `Favorite ${index}`;
+    revealCount.textContent = `${index} of ${revealTotal}`;
+    revealImg.classList.add("is-visible");
+  }, 120);
 
   if (index >= revealTotal) {
     revealNext.textContent = "One last thing";
