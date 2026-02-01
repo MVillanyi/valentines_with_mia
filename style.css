@@ -16,21 +16,15 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 24px;
+  justify-content: center;
   padding: 18px;
 }
 
-.hero-image {
-  max-width: 180px;
-  width: 100%;
-  height: auto;
-}
-
 .card {
-  width: min(520px, 92vw);
+  width: min(560px, 92vw);
   background: radial-gradient(circle at top, #1a1a1a, #0b0b0b);
-  color: white;
-  padding: 36px 42px;
+  color: #ffffff;
+  padding: 34px 44px 40px;
   border-radius: 18px;
   text-align: center;
   box-shadow: 0 30px 60px rgba(0, 0, 0, 0.45);
@@ -40,20 +34,43 @@ body {
   display: none;
 }
 
-.to {
-  opacity: 0.9;
-  margin-bottom: 6px;
+.hero-image {
+  width: 120px;
+  height: auto;
+  display: block;
+  margin: 0 auto 14px auto;
+  filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.35));
 }
 
-h1, h2 {
+.to {
+  opacity: 0.9;
+  margin: 0 0 8px 0;
+}
+
+h1 {
+  margin: 0 0 18px 0;
+  font-size: 34px;
+  line-height: 1.15;
+}
+
+h2 {
+  margin: 0 0 14px 0;
+  font-size: 34px;
+  line-height: 1.15;
+}
+
+.copy {
+  opacity: 0.9;
+  font-size: 16px;
+  line-height: 1.55;
   margin: 0 0 18px 0;
 }
 
 .buttons {
-  margin-top: 18px;
+  margin: 18px auto 0;
   position: relative;
   height: 56px;
-  width: 320px;
+  width: 340px;
   max-width: 100%;
 }
 
@@ -69,39 +86,45 @@ button {
   position: absolute;
   left: 0;
   top: 0;
-  background: linear-gradient(135deg, #c2185b, #e91e63);
-  color: white;
+  background: linear-gradient(135deg, #7b0b2a, #c2185b);
+  color: #ffffff;
+  box-shadow: 0 12px 30px rgba(194, 24, 91, 0.25);
 }
 
 #no {
   position: absolute;
   right: 0;
   top: 0;
-  background: #2b2b2b;
-  color: rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(255, 255, 255, 0.10);
   will-change: transform;
 }
 
 .next {
-  background: #2b2b2b;
-  color: white;
-  margin-top: 20px;
+  background: rgba(255, 255, 255, 0.08);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  margin-top: 8px;
 }
 
 .content-image {
-  max-width: 100%;
+  width: 100%;
+  max-width: 520px;
   border-radius: 14px;
-  margin: 16px 0;
+  margin: 14px auto 14px;
+  display: block;
 }
 
 .gallery {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 10px;
-  margin-top: 16px;
+  margin: 14px 0 8px;
 }
 
 .gallery img {
   width: 100%;
   border-radius: 10px;
+  display: block;
 }
