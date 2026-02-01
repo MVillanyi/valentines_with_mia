@@ -2,12 +2,13 @@ const pages = document.querySelectorAll(".card");
 
 function showPage(id) {
   pages.forEach(p => p.classList.add("hidden"));
-  document.getElementById(id).classList.remove("hidden");
+  const el = document.getElementById(id);
+  if (el) el.classList.remove("hidden");
 }
 
 const noBtn = document.getElementById("no");
 const yesBtn = document.getElementById("yes");
-const buttonsArea = noBtn.parentElement;
+const buttonsArea = document.querySelector(".buttons");
 
 function moveNoInsideBox() {
   const area = buttonsArea.getBoundingClientRect();
@@ -29,21 +30,25 @@ function moveNoInsideBox() {
 
 noBtn.addEventListener("mouseenter", moveNoInsideBox);
 noBtn.addEventListener("pointerenter", moveNoInsideBox);
+noBtn.addEventListener("click", moveNoInsideBox);
 
 yesBtn.addEventListener("click", () => {
   showPage("page-hurray");
   if (typeof confetti === "function") {
     confetti({
-      particleCount: 60,
-      spread: 55,
-      origin: { y: 0.6 }
+      particleCount: 70,
+      spread: 45,
+      startVelocity: 18,
+      scalar: 0.8,
+      origin: { y: 0.65 }
     });
   }
 });
 
 document.querySelectorAll(".next").forEach(btn => {
   btn.addEventListener("click", () => {
-    showPage(btn.dataset.next);
+    const next = btn.getAttribute("data-next");
+    if (next) showPage(next);
   });
 });
 
@@ -52,6 +57,7 @@ if (gallery) {
   for (let i = 1; i <= 9; i++) {
     const img = document.createElement("img");
     img.src = `favorite_${i}.png`;
+    img.alt = `Favorite ${i}`;
     gallery.appendChild(img);
   }
 }
