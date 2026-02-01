@@ -4,10 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Valentine</title>
-  <!-- #no peeking Mia. Thats not fair -->
-  <link rel="stylesheet" href="./style.css?v=9" />
+  <link rel="stylesheet" href="./style.css?v=10" />
 </head>
-<body>
+<body data-note="#no peeking Mia. Thats not fair">
   <main class="wrap">
     <section class="card" id="card">
       <div class="topline">For Mia</div>
@@ -21,9 +20,16 @@
       <p class="secret" id="secret" aria-live="polite"></p>
     </section>
 
-    <section class="overlay" id="overlay" aria-hidden="true"></section>
+    <section class="overlay" id="overlay" aria-hidden="true">
+      <div class="overlayCard">
+        <div class="small">No expectations. Just us.</div>
+        <div class="big">Happy Valentine’s, Mia.</div>
+        <div class="small2">I’m glad it’s you.</div>
+        <button class="reset" id="reset" type="button">Back</button>
+      </div>
+    </section>
   </main>
 
-  <script src="./script.js?v=9" defer></script>
+  <script src="./script.js?v=10" defer></script>
 </body>
 </html>
