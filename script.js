@@ -7,6 +7,8 @@ const overlayText = document.getElementById("overlayText");
 const next = document.getElementById("next");
 const arena = document.getElementById("arena");
 
+let step = 0;
+
 no.addEventListener("mouseenter", () => {
   const arenaRect = arena.getBoundingClientRect();
   const noRect = no.getBoundingClientRect();
@@ -22,6 +24,7 @@ no.addEventListener("mouseenter", () => {
 
 yes.addEventListener("click", () => {
   card.classList.add("isHidden");
+  step = 1;
 
   overlayTitle.textContent = "Hurray!";
   overlayText.innerHTML =
@@ -49,5 +52,13 @@ yes.addEventListener("click", () => {
 });
 
 next.addEventListener("click", () => {
-  overlay.classList.remove("isVisible");
+  if (step === 1) {
+    step = 2;
+
+    overlayTitle.textContent = "Our first picture";
+    overlayText.innerHTML = `
+      <img src="us.png" class="memoryImage" alt="Our picture">
+      <p>This is our picture together.<br>I can’t wait to take the next one.</p>
+    `;
+  }
 });
