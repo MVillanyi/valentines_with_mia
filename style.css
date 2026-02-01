@@ -1,120 +1,99 @@
-* { box-sizing: border-box; }
+* {
+  box-sizing: border-box;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}
 
 body {
   margin: 0;
-  height: 100vh;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-  background: radial-gradient(circle at top, #f6d1dc, #e8b6c5);
-  color: #fff;
+  min-height: 100vh;
+  background: linear-gradient(180deg, #f7cfd8, #f1bfc9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .wrap {
-  height: 100vh;
-  display: grid;
-  place-items: center;
-  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+
+.hero-image {
+  max-width: 180px;
+  width: 100%;
+  height: auto;
 }
 
 .card {
-  width: min(420px, 92vw);
-  background: linear-gradient(180deg, #131318, #0f0f12);
+  background: radial-gradient(circle at top, #1a1a1a, #0b0b0b);
+  color: white;
+  padding: 36px 42px;
   border-radius: 18px;
-  padding: 28px;
+  min-width: 320px;
+  max-width: 420px;
   text-align: center;
-  box-shadow: 0 25px 60px rgba(0,0,0,.45);
-  transition: opacity .25s ease, transform .25s ease;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.45);
 }
 
-.card.isHidden {
-  opacity: 0;
-  transform: translateY(8px);
-  pointer-events: none;
+.hidden {
+  display: none;
 }
 
-.topline {
-  font-size: .85rem;
-  color: rgba(255,255,255,.75);
-  margin-bottom: 8px;
+.to {
+  opacity: 0.9;
+  margin-bottom: 6px;
 }
 
-h1 {
-  font-size: 1.55rem;
-  font-weight: 650;
+h1, h2 {
+  margin: 0 0 18px 0;
 }
 
 .buttons {
-  margin-top: 20px;
-  position: relative;
-  height: 110px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
 }
 
 button {
-  padding: .75rem 1.7rem;
-  font-size: 1rem;
-  border-radius: 999px;
   border: none;
+  padding: 12px 26px;
+  border-radius: 999px;
+  font-size: 15px;
   cursor: pointer;
 }
 
 #yes {
-  background: linear-gradient(135deg,#e63973,#7a1f3d);
+  background: linear-gradient(135deg, #c2185b, #e91e63);
   color: white;
 }
 
 #no {
-  position: absolute;
-  left: 180px;
-  top: 12px;
-  background: rgba(255,255,255,.1);
-  color: rgba(255,255,255,.85);
+  background: #2b2b2b;
+  color: white;
+  position: relative;
 }
 
-.overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,.78);
-  backdrop-filter: blur(6px);
-  display: grid;
-  place-items: center;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity .3s ease;
+.next {
+  background: #2b2b2b;
+  color: white;
+  margin-top: 20px;
 }
 
-.overlay.isVisible {
-  opacity: 1;
-  pointer-events: auto;
-}
-
-.overlayCard {
-  width: min(820px, 94vw);
-  max-height: 86vh;
-  background: linear-gradient(180deg,#131318,#0f0f12);
-  border-radius: 18px;
-  padding: 28px;
-  text-align: center;
-  overflow-y: auto;
-}
-
-.overlayCard img {
+.content-image {
   max-width: 100%;
   border-radius: 14px;
-  margin: 14px 0;
+  margin: 16px 0;
 }
 
-.grid {
+.gallery {
   display: grid;
-  grid-template-columns: repeat(auto-fit,minmax(140px,1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 10px;
+  margin-top: 16px;
 }
 
-.grid img {
+.gallery img {
   width: 100%;
-  border-radius: 12px;
-}
-
-.reset {
-  margin-top: 18px;
-  background: rgba(255,255,255,.12);
-  color: white;
+  border-radius: 10px;
 }
