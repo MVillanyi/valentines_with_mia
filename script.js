@@ -51,12 +51,36 @@ document.querySelectorAll(".next").forEach(btn => {
   });
 });
 
-const gallery = document.getElementById("gallery");
-if (gallery) {
-  for (let i = 1; i <= 10; i++) {
-    const img = document.createElement("img");
-    img.src = `favorite_${i}.png`;
-    img.alt = `Favorite ${i}`;
-    gallery.appendChild(img);
+const revealImg = document.getElementById("revealImg");
+const revealCount = document.getElementById("revealCount");
+const revealNext = document.getElementById("revealNext");
+
+let revealIndex = 1;
+const revealTotal = 10;
+
+function setReveal(index) {
+  if (!revealImg || !revealCount || !revealNext) return;
+
+  revealImg.src = `favorite_${index}.png`;
+  revealImg.alt = `Favorite ${index}`;
+  revealCount.textContent = `${index} of ${revealTotal}`;
+
+  if (index >= revealTotal) {
+    revealNext.textContent = "One last thing";
+  } else {
+    revealNext.textContent = "Show me the next one";
   }
+}
+
+if (revealImg && revealCount && revealNext) {
+  setReveal(revealIndex);
+
+  revealNext.addEventListener("click", () => {
+    if (revealIndex >= revealTotal) {
+      showPage("page-last");
+      return;
+    }
+    revealIndex += 1;
+    setReveal(revealIndex);
+  });
 }
